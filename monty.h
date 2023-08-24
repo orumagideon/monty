@@ -55,6 +55,12 @@ typedef struct mlist_s
 
 extern mlist_t gs;
 
+/* opcode.c */
+int chk_int(const char *argint);
+int run_opcode(char *buf);
+void nop(stack_t **stack, unsigned int data);
+void myexit(int code, char *string);
+
 /* monty_list.c */
 void mlist_init(void);
 void mlist_destroy(void);
@@ -62,31 +68,25 @@ int mlist_ins_end(const int data);
 int mlist_ins_beg(const int data);
 int mlist_remove(stack_t *node);
 
-/* run_opcode.c */
-int run_opcode(char *buf);
-void myexit(int code, char *string);
-int chk_int(const char *argint);
-void nop(stack_t **stack, unsigned int data);
-
-/* functions.c */
-void push(stack_t **stack, unsigned int data);
-void pint(stack_t **stack, unsigned int data);
-void pall(stack_t **stack, unsigned int data);
-void pop(stack_t **stack, unsigned int data);
-void swap(stack_t **stack, unsigned int data);
-
-/* functions3.c */
-void rotl(stack_t **head, unsigned int data);
-void rotr(stack_t **head, unsigned int data);
-void pchar(stack_t **head, unsigned int data);
-void pstr(stack_t **head, unsigned int data);
-void chgmode(stack_t **head, unsigned int data);
-
-/* mathFunc.c */
+/* matths_func.c */
+void _mod(stack_t **head, unsigned int data);
+void _mul(stack_t **head, unsigned int data);
 void _add(stack_t **head, unsigned int data);
 void _sub(stack_t **head, unsigned int data);
 void _div(stack_t **head, unsigned int data);
-void _mod(stack_t **head, unsigned int data);
-void _mul(stack_t **head, unsigned int data);
+
+/* functions.c */
+void swap(stack_t **stack, unsigned int data);
+void push(stack_t **stack, unsigned int data);
+void pint(stack_t **stack, unsigned int data);
+void pop(stack_t **stack, unsigned int data);
+void pall(stack_t **stack, unsigned int data);
+
+/* third_fun.c */
+void pstr(stack_t **head, unsigned int data);
+void rotl(stack_t **head, unsigned int data);
+void rotr(stack_t **head, unsigned int data);
+void chgmode(stack_t **head, unsigned int data);
+void pchar(stack_t **head, unsigned int data);
 
 #endif /* MONTY_H */
