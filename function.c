@@ -1,23 +1,23 @@
 #include "monty.h"
 /**
-  * push - pushes an element to the stack
+  * push - function pushes element to the stack
   * @head: void
-  * @data: used to check if malloc fails
+  * @data: function check if malloc fails
   */
 
 void push(stack_t **head, unsigned int data)
 {
 	(void)head;
 
-	if (gs.mode == 1)/* Stack */
-		data = dlist_ins_end(gs.intarg);
-	else /* Queue */
-		data = dlist_ins_beg(gs.intarg);
+	if (gs.mode == 1)
+		data = mlist_ins_end(gs.intarg);
+	else
+		data = mlist_ins_beg(gs.intarg);
 	if (data == 42)
 		myexit(-5, NULL);
 }
 /**
-  * pall -  prints all the values on the stack, starting from the top
+  * pall -  function prints all values on stack from the top
   * @head: void
   * @data: void
   */
@@ -49,7 +49,7 @@ void pint(stack_t **head, unsigned int data)
 	printf("%d\n", gs.tail->n);
 }
 /**
-  * pop - removes the top element of the stack
+  * pop - function removes the top element of the stack
   * @head: void
   * @data: void
   */
@@ -60,12 +60,12 @@ void pop(stack_t **head, unsigned int data)
 
 	if (gs.size == 0)
 		myexit(-7, NULL);
-	dlist_remove(gs.tail);
+	mlist_remove(gs.tail);
 }
 /**
-* swap - swaps the top two elements of the stack
+* swap - function swaps top two elements of stack
 * @head: void
-* @data: store integer from node
+* @data: function store integer from node
 */
 void swap(stack_t **head, unsigned int data)
 {

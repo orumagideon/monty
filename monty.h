@@ -41,7 +41,7 @@ typedef struct instruction_s
  * @head: pointer to the head of double linked list
  * @tail: pointer to the tail of double linked list
  */
-typedef struct dlist_s
+typedef struct mlist_s
 {
 	size_t size;
 	unsigned int ln;
@@ -51,16 +51,16 @@ typedef struct dlist_s
 	void *buffer;
 	int intarg;
 	int mode;
-} dlist_t;
+} mlist_t;
 
-extern dlist_t gs;
+extern mlist_t gs;
 
 /* monty_list.c */
-void dlist_init(void);
-void dlist_destroy(void);
-int dlist_ins_end(const int data);
-int dlist_ins_beg(const int data);
-int dlist_remove(stack_t *node);
+void mlist_init(void);
+void mlist_destroy(void);
+int mlist_ins_end(const int data);
+int mlist_ins_beg(const int data);
+int mlist_remove(stack_t *node);
 
 /* run_opcode.c */
 int run_opcode(char *buf);

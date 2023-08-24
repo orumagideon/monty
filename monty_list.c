@@ -1,8 +1,8 @@
 #include "monty.h"
 /**
- * dlist_init - initializes doubly linked list
+ * mlist_init - function initializes doubly linked list
  */
-void dlist_init(void)
+void mlist_init(void)
 {
 	gs.size = 0;
 	gs.ln = 0;
@@ -14,16 +14,16 @@ void dlist_init(void)
 	gs.mode = 1;
 }
 /**
- * dlist_remove - removes node from doubly linked list
- * @node: stack to be removed
+ * mlist_remove - function removes node from doubly linked list
+ * @node: the stack to be removed
  * Return: 0 on sucess else -1 if stack is empty
  */
-int dlist_remove(stack_t *node)
+int mlist_remove(stack_t *node)
 {
 	if (node == NULL || gs.size == 0)
 		return (-1);
-	/*remove element from gs*/
-	if (node == gs.head)/* handle removal from head of the list*/
+
+	if (node == gs.head)
 	{
 		gs.head = node->next;
 
@@ -32,7 +32,7 @@ int dlist_remove(stack_t *node)
 		else
 			node->next->prev = NULL;
 	}
-	else/* handle removal from other than head in gs*/
+	else
 	{
 		node->prev->next = node->next;
 
@@ -47,28 +47,28 @@ int dlist_remove(stack_t *node)
 	return (0);
 }
 /**
- * dlist_ins_end - adds node to the end ofdoubly linked list
+ * mlist_ins_end - function adds node at the end ofdoubly linked list
  * @data: int to be stored in node
  * Return: 0 on sucess else 42 if malloc fails
  */
-int dlist_ins_end(const int data)
+int mlist_ins_end(const int data)
 {
 	stack_t *new_node, *node;
 
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 		return (42);
-	/* Add new element into dlist_t */
+	
 	new_node->n = data;
 
-	if (gs.size == 0)/*if list is empty*/
+	if (gs.size == 0)
 	{
 		gs.head = new_node;
 		gs.head->prev = NULL;
 		gs.head->next = NULL;
 		gs.tail = new_node;
 	}
-	else/* -node->prev- -new_node- -node->next- */
+	else
 	{
 		node = gs.tail;
 		new_node->next = node->next;
@@ -81,29 +81,29 @@ int dlist_ins_end(const int data)
 	return (0);
 }
 /**
- * dlist_ins_beg - adds node to beginning of doubly linked list
- * @data: int to be stored in node
+ * mlist_ins_beg - function adds to beginning of doubly linked list
+ * @data: the int to be stored in node
  * Return: 0 on sucess else 42 if malloc fails
  */
 
-int dlist_ins_beg(const int data)
+int mlist_ins_beg(const int data)
 {
 	stack_t *new_node, *node;
 
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 		return (42);
-	/* Add new element into dlist_t */
+	
 	new_node->n = data;
 
-	if (gs.size == 0)/*if list is empty*/
+	if (gs.size == 0)
 	{
 		gs.head = new_node;
 		gs.head->prev = NULL;
 		gs.head->next = NULL;
 		gs.tail = new_node;
 	}
-	else/* -node->prev- -new_node- -node->next- */
+	else
 	{
 		node = gs.head;
 		new_node->next = node;

@@ -1,8 +1,8 @@
 #include "monty.h"
 /**
- * rotl - rotates the stack to the top
- * @head: beginning of stack
- * @data: integer in stack
+ * rotl - function rotates the stack to the top
+ * @head: the beginning of stack
+ * @data: the integer in stack
  */
 void rotl(stack_t **head, unsigned int data)
 {
@@ -11,13 +11,13 @@ void rotl(stack_t **head, unsigned int data)
 		myexit(0, NULL);
 
 	data = gs.tail->n;
-	dlist_ins_beg(data);
-	dlist_remove(gs.tail);
+	mlist_ins_beg(data);
+	mlist_remove(gs.tail);
 }
 /**
- * rotr - rotates the stack to the bottom
- * @head: beginning of stack
- * @data: integer in stack
+ * rotr - function rotates the stack to the bottom
+ * @head: the beginning of stack
+ * @data: the integer in stack
 */
 void rotr(stack_t **head, unsigned int data)
 {
@@ -26,13 +26,13 @@ void rotr(stack_t **head, unsigned int data)
 		myexit(0, NULL);
 
 	data = gs.head->n;
-	dlist_ins_end(data);
-	dlist_remove(gs.head);
+	mlist_ins_end(data);
+	mlist_remove(gs.head);
 }
 /**
- * pchar - rotates the stack to the bottom
- * @head: beginning of stack
- * @data: integer in stack
+ * pchar - function rotates the stack to the bottom
+ * @head: the beginning of stack
+ * @data: the integer in stack
 */
 void pchar(stack_t **head, unsigned int data)
 {
@@ -48,8 +48,8 @@ void pchar(stack_t **head, unsigned int data)
 	printf("%c\n", num);
 }
 /**
- * pstr - rotates the stack to the bottom
- * @head: beginning of stack
+ * pstr - function rotates the stack to the bottom
+ * @head: the beginning of stack
  * @data: integer in stack
  */
 void pstr(stack_t **head, unsigned int data)
@@ -68,7 +68,7 @@ void pstr(stack_t **head, unsigned int data)
 	printf("\n");
 }
 /**
- * chgmode - change mode: stack to que
+ * chgmode - function changes mode: stack to que
  * @head: Unused
  * @data: Unused
  */

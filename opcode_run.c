@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
- * run_opcode - searches line for commands and executes them
- * @buf: line of opcode taken from from file
+ * run_opcode - function  searches for commands and executes them
+ * @buf: the opcode taken from from file
  * Return: 0 if empty line or comment.
  */
 int run_opcode(char *buf)
@@ -18,7 +18,7 @@ int run_opcode(char *buf)
 	int intarg = 0;
 
 	opcode = strtok(buf, delim);
-	if (opcode == NULL || opcode[0] == '#')/*if empty line or comment*/
+	if (opcode == NULL || opcode[0] == '#')
 		return (0);
 	for (i = 0; cmd[i].f != NULL; i++)
 	{
@@ -27,23 +27,23 @@ int run_opcode(char *buf)
 			if (i == 0)
 			{
 				argint = strtok(NULL, delim);
-				intarg = chk_int(argint);/*chk int arg*/
-				if (intarg == -4)/*push arg is not int*/
+				intarg = chk_int(argint);
+				if (intarg == -4)
 					myexit(-4, NULL);
 			}
-			cmd[i].f(NULL, 0);/*call respective funciton*/
+			cmd[i].f(NULL, 0);
 			break;
 		}
 	}
-	if (cmd[i].f == NULL)/*IF NO MATCH*/
+	if (cmd[i].f == NULL)
 		myexit(-3, opcode);
 
 	return (0);
 }
 /**
-  * myexit - prints out error messages and exits failure
-  * @code: corresponding error code
-  * @string: opcode failure occured on
+  * myexit - function prints out error messages and exits failure
+  * @code: the corresponding error code
+  * @string: the opcode failure occured on
   **/
 void myexit(int code, char *string)
 {
@@ -75,12 +75,12 @@ void myexit(int code, char *string)
 			printf("L%d: can't pchar, value out of range\n", gs.ln);
 			break;
 	}
-	dlist_destroy();
+	mlist_destroy();
 	exit(EXIT_FAILURE);
 }
 /**
- * chk_int - checks argument after opcode for integer value
- * @argint: argument thats being checked to be integer
+ * chk_int - function checks argument after opcode for integer
+ * @argint: the argument thats being checked to be integer
  * Return: -4 if strtok fails else 0
  */
 int chk_int(const char *argint)
@@ -88,7 +88,7 @@ int chk_int(const char *argint)
 	int i, check;
 
 	if (argint == NULL)
-		return (-4);/*second strtok fails*/
+		return (-4);
 
 	for (i = 0; argint[i]; i++)
 	{
@@ -102,7 +102,7 @@ int chk_int(const char *argint)
 	return (0);
 }
 /**
-* nop - function that does nothing
+* nop - the function does nothing
 * @head: voided
 * @data: voided
 */

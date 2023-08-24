@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
-  * _add - adds the top two elements of the stack
+  * _add - function adds top two elements of the stack
   * @head: void
   * @data: void
   */
@@ -12,14 +12,14 @@ void _add(stack_t **head, unsigned int data)
 		myexit(-8, "add");
 
 	data = gs.tail->n;
-	dlist_remove(gs.tail);
+	mlist_remove(gs.tail);
 	data += gs.tail->n;
 	gs.tail->n = data;
 }
 /**
-  * _sub - subtract the top two elements of the stack
+  * _sub - function subtracts top two elements of the stack
   * @head: void
-  * @data: store interger from node
+  * @data: function stores interger from node
   */
 void _sub(stack_t **head, unsigned int data)
 {
@@ -31,12 +31,12 @@ void _sub(stack_t **head, unsigned int data)
 	data = gs.tail->prev->n;
 	data -= gs.tail->n;
 	gs.tail->prev->n = data;
-	dlist_remove(gs.tail);
+	mlist_remove(gs.tail);
 }
 /**
-  * _div - divides the top two elements of the stack
+  * _div - function divides top two elements of the stack
   * @head: void
-  * @data: store integer from node
+  * @data: function store integer from node
   */
 void _div(stack_t **head, unsigned int data)
 {
@@ -48,14 +48,14 @@ void _div(stack_t **head, unsigned int data)
 	data = gs.tail->n;
 	if (data == 0)
 		myexit(-9, NULL);
-	dlist_remove(gs.tail);
+	mlist_remove(gs.tail);
 	data /= gs.tail->n;
 	gs.tail->n = data;
 }
 /**
-  * _mod - modulo the top two elements of the stack
+  * _mod - top two modulo elements of the stack
   * @head: void
-  * @data: store integer from node
+  * @data: the store integer from node
   */
 void _mod(stack_t **head, unsigned int data)
 {
@@ -67,14 +67,14 @@ void _mod(stack_t **head, unsigned int data)
 	data = gs.tail->n;
 	if (data == 0)
 		myexit(-9, NULL);
-	dlist_remove(gs.tail);
+	mlist_remove(gs.tail);
 	data %= gs.tail->n;
 	gs.tail->n = data;
 }
 /**
-  * _mul - multiply the top two elements of the stack
+  * _mul - function multiply top two elements of the stack
   * @head: void
-  * @data: store interger from node
+  * @data: interger stored from node
   */
 void _mul(stack_t **head, unsigned int data)
 {
@@ -84,7 +84,7 @@ void _mul(stack_t **head, unsigned int data)
 		myexit(-8, "mul");
 
 	data = gs.tail->n;
-	dlist_remove(gs.tail);
+	mlist_remove(gs.tail);
 	data *= gs.tail->n;
 	gs.tail->n = data;
 }
