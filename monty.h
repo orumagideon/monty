@@ -1,11 +1,11 @@
-#ifndef _MONTY_H_
-#define _MONTY_H_
+#ifndef MONTY_H
+#define MONTY_H
 
-#include <ctype.h> /*isdigit*/
-#include <stdio.h>
-#include <string.h> /*strtok*/
 #include <stdlib.h>
-#include <unistd.h> /*atexit*/
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+#include <unistd.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -36,7 +36,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 /**
- * struct dlist_s - global structure to hold data
+ * struct dlist_s - The global structure to hold data
  * @size: size of double linked list
  * @head: pointer to the head of double linked list
  * @tail: pointer to the tail of double linked list
@@ -55,7 +55,7 @@ typedef struct dlist_s
 
 extern dlist_t gs;
 
-/* dlist.c */
+/* monty_list.c */
 void dlist_init(void);
 void dlist_destroy(void);
 int dlist_ins_end(const int data);
@@ -88,4 +88,5 @@ void _sub(stack_t **head, unsigned int data);
 void _div(stack_t **head, unsigned int data);
 void _mod(stack_t **head, unsigned int data);
 void _mul(stack_t **head, unsigned int data);
-#endif /* _MONTY_H_ */
+
+#endif /* MONTY_H */
